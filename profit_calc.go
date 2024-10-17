@@ -7,18 +7,27 @@ func main() {
 	var expenses float64
 	var taxRate float64
 
-	fmt.Print("Enter Revenue: ")
+	inputText("Enter Revenue: ")
 	fmt.Scan(&revenue)
-	fmt.Print("Enter Expenses: ")
+	inputText("Enter Expenses: ")
 	fmt.Scan(&expenses)
-	fmt.Print("Enter Tax Rate: ")
+	inputText("Enter Tax Rate: ")
 	fmt.Scan(&taxRate)
 
-	ebt := revenue - expenses
-	profit := ebt - ((ebt / 100) * taxRate)
-	ratio := ebt / profit
+	earningsBeforeTax, earningsAfterTax, ratio := getAllValues(revenue, expenses, taxRate)
 
-	fmt.Printf("Earnings before tax: %v \n", ebt)
-	fmt.Println("Earnings after tax:", profit)
+	fmt.Printf("Earnings before tax: %v \n", earningsBeforeTax)
+	fmt.Println("Earnings after tax:", earningsAfterTax)
 	fmt.Println("Ratio:", ratio)
+}
+
+func inputText(text string) {
+	fmt.Print(text)
+}
+
+func getAllValues(revenue, expenses, taxRate float64) (ebt float64, profit float64, ratio float64) {
+	ebt = revenue - expenses
+	profit = ebt - ((ebt / 100) * taxRate)
+	ratio = ebt / profit
+	return ebt, profit, ratio
 }
