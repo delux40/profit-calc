@@ -11,7 +11,7 @@ func main() {
 
 	fmt.Printf("Earnings before tax: %v \n", earningsBeforeTax)
 	fmt.Println("Earnings after tax:", earningsAfterTax)
-	fmt.Println("Ratio:", ratio)
+	fmt.Printf("Ratio: %.3v", ratio)
 }
 
 func getUserInput(infoText string) float64 {
