@@ -7,7 +7,7 @@ func main() {
 	expenses := getUserInput("Enter Expenses: ")
 	taxRate := getUserInput("Enter Tax Rate: ")
 
-	earningsBeforeTax, earningsAfterTax, ratio := getAllValues(revenue, expenses, taxRate)
+	earningsBeforeTax, earningsAfterTax, ratio := calculateAllValues(revenue, expenses, taxRate)
 
 	fmt.Printf("Earnings before tax: %v \n", earningsBeforeTax)
 	fmt.Println("Earnings after tax:", earningsAfterTax)
@@ -21,7 +21,7 @@ func getUserInput(infoText string) float64 {
 	return userInput
 }
 
-func getAllValues(revenue, expenses, taxRate float64) (ebt float64, profit float64, ratio float64) {
+func calculateAllValues(revenue, expenses, taxRate float64) (ebt float64, profit float64, ratio float64) {
 	ebt = revenue - expenses
 	profit = ebt - ((ebt / 100) * taxRate)
 	ratio = ebt / profit
