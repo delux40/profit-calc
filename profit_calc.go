@@ -3,16 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
-
-	inputText("Enter Revenue: ")
-	fmt.Scan(&revenue)
-	inputText("Enter Expenses: ")
-	fmt.Scan(&expenses)
-	inputText("Enter Tax Rate: ")
-	fmt.Scan(&taxRate)
+	revenue := getUserInput("Enter Revenue: ")
+	expenses := getUserInput("Enter Expenses: ")
+	taxRate := getUserInput("Enter Tax Rate: ")
 
 	earningsBeforeTax, earningsAfterTax, ratio := getAllValues(revenue, expenses, taxRate)
 
@@ -21,8 +14,11 @@ func main() {
 	fmt.Println("Ratio:", ratio)
 }
 
-func inputText(text string) {
-	fmt.Print(text)
+func getUserInput(infoText string) float64 {
+	fmt.Print(infoText)
+	var userInput float64
+	fmt.Scan(&userInput)
+	return userInput
 }
 
 func getAllValues(revenue, expenses, taxRate float64) (ebt float64, profit float64, ratio float64) {
