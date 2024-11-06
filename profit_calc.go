@@ -22,7 +22,7 @@ func getUserInput(infoText string) float64 {
 	var userInput float64
 	fmt.Scan(&userInput)
 
-	if userInput == 0 || userInput < 0 {
+	if userInput <= 0 {
 		panic("You have entered a value greater than or equal to 0.")
 	}
 
